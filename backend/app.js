@@ -5,6 +5,14 @@ import { generateImage } from './image.js';
 const app = express();
 app.use(express.json());
 
+// CORS middleware to allow requests from any origin
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'POST');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  next();
+});
+
 app.post('/signup', async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -37,6 +45,10 @@ app.post('/login', async (req, res) => {
 // enfoerceAuth middleware is called before main method and checks if the request is authenticated
 app.post('/generate-image', enforceAuth, async (req, res) => {
     const { prompt, options } = req.body; //options => aspect_ratio, format, quality
+
+    if (!prompt || prompt.trim().length === 0) {
+        return res.status(400).send({ error: 'Prompt is required' });
+    }
 
     const { image, format } = await generateImage(prompt, options);
     res.type(format);
