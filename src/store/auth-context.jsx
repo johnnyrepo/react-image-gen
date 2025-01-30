@@ -39,7 +39,7 @@ export function AuthContextProvider({ children }) {
     const [token, setToken] = useState(initialToken);
 
     async function signup(email, password) {
-        const response = await fetch('http://localhost:3000/signup', {
+        const response = await fetch(import.meta.env.VITE_API_URL + '/signup', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -62,7 +62,7 @@ export function AuthContextProvider({ children }) {
     }
 
     async function login(email, password) {
-        const response = await fetch('http://localhost:3000/login', {
+        const response = await fetch(import.meta.env.VITE_API_URL + '/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

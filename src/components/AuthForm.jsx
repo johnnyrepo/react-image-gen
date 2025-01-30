@@ -50,7 +50,7 @@ function AuthForm() {
                     disabled={isPending}
                     className="bg-sky-400 text-black py-2 rounded-lg hover:bg-sky-500 disabled:cursor-not-allowed disabled:bg-stone-400 disabled:text-stone-600">
                     {!isPending && authMode === 'login' ? 'Log in' : 'Sign up'}
-                    {isPending && 'Submitting...'}
+                    {isPending && ' Submitting...'}
                 </button>
                 <button
                     disabled={isPending}

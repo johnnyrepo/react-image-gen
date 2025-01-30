@@ -1,0 +1,10 @@
+POST http://127.0.0.1:5001/reactimagegen-6edef/us-central1/app/generate-image
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MzgyNDI5NDIsImV4cCI6MTczODI0NjU0Mn0.aubB9m448T_JypmEUhWwRSU7Q-Q5vB5GWX6qJH08QK4
+
+{
+    "prompt": "Melania Trump holding an Oscar prize",
+    "options": {
+        "format": "jpg"
+    }
+}

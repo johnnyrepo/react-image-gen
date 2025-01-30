@@ -6,7 +6,7 @@ import Label from "./Label";
 import { useAuthContext } from "../store/auth-context";
 
 async function sendImageRequest(prompt, options, authToken) {
-    const response = await fetch('http://localhost:3000/generate-image', {
+    const response = await fetch(import.meta.env.VITE_API_URL + '/generate-image', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
